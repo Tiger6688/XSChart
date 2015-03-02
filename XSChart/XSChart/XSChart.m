@@ -206,4 +206,8 @@ CGFloat radius=5.f;
     CGFloat width=self.frame.size.width;
     return  CGPointMake(2.5*margin+(width-2*margin)/self.count*index, height-value*self.avgHeight-1.5*margin);
 }
+-(void)reload
+{
+    [self layoutIfNeeded];
+}
 @end

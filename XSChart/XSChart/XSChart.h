@@ -28,4 +28,5 @@
 @interface XSChart : UIView
 @property(nonatomic,assign)id<XSChartDataSource> dataSource;
 @property(assign, nonatomic)id<XSChartDelegate> delegate;
+-(void)reload;
 @end
