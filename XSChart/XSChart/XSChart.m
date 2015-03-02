@@ -97,9 +97,9 @@ CGFloat radius=5.f;
         [self.layer addSublayer:layer];
         if (_dataSource&&[_dataSource respondsToSelector:@selector(showDataAtPointForChart:)]&&[_dataSource showDataAtPointForChart:self]) {
             NSString *valueString=[NSString stringWithFormat:@"%ld",(long)value];
-            CGRect frame=[valueString boundingRectWithSize:CGSizeMake(100, 100) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:14.f]} context:nil];
+            CGRect frame=[valueString boundingRectWithSize:CGSizeMake(MAXFLOAT, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:14.f]} context:nil];
             CGPoint pointForValueString=CGPointMake(point.x-frame.size.width/2, point.y+margin/3);
-            if (pointForValueString.y>self.frame.size.height-1.5*margin) {
+            if (pointForValueString.y+frame.size.height>self.frame.size.height-1.5*margin) {
                 pointForValueString.y=point.y-1.5*margin;
             }
             [valueString drawAtPoint:pointForValueString withAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:14.f]}];
@@ -117,7 +117,7 @@ CGFloat radius=5.f;
 {//
     NSDictionary *font=@{NSFontAttributeName: [UIFont systemFontOfSize:12.f]};
     CGPoint point=[self pointWithValue:0 index:index];
-    CGSize size=[text boundingRectWithSize:CGSizeMake(100, 100) options:NSStringDrawingUsesLineFragmentOrigin attributes:font context:nil].size;
+    CGSize size=[text boundingRectWithSize:CGSizeMake(MAXFLOAT, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:font context:nil].size;
     point.x-=size.width/2;
     point.y+=3;
     [text drawAtPoint:point withAttributes:font];
@@ -130,7 +130,7 @@ CGFloat radius=5.f;
     [origin drawAtPoint:CGPointMake(0.9*margin, self.frame.size.height-2*margin) withAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:11.f]}];
     
     NSString *max=[NSString stringWithFormat:@"%ld",(long)self.maxValue];
-    CGRect tmpFrame=[max boundingRectWithSize:CGSizeMake(100, 100) options:NSStringDrawingUsesLineFragmentOrigin attributes:font context:nil];
+    CGRect tmpFrame=[max boundingRectWithSize:CGSizeMake(MAXFLOAT, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:font context:nil];
     [max drawAtPoint:CGPointMake(1.5*margin-tmpFrame.size.width-1, [self pointWithValue:_maxValue index:0].y-5) withAttributes:font];
 }
 -(void)setupTitle
@@ -144,7 +144,7 @@ CGFloat radius=5.f;
     }
     if (_dataSource&&[_dataSource respondsToSelector:@selector(titleForXAtChart:)]) {
         NSString *xTitle=[_dataSource titleForXAtChart:self];
-        CGRect frame=[xTitle boundingRectWithSize:CGSizeMake(100, 100) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:12.f]} context:nil];
+        CGRect frame=[xTitle boundingRectWithSize:CGSizeMake(MAXFLOAT, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:12.f]} context:nil];
         [xTitle drawAtPoint:CGPointMake(self.frame.size.width-margin-frame.size.width,self.frame.size.height-2*margin-frame.size.height) withAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:12.f]}];
     }
     
