@@ -14,6 +14,7 @@
 		06D529B01AA4380200C851D0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06D529AF1AA4380200C851D0 /* Images.xcassets */; };
 		06D529B31AA4380200C851D0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06D529B11AA4380200C851D0 /* LaunchScreen.xib */; };
 		06D529BF1AA4380200C851D0 /* XSChartTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D529BE1AA4380200C851D0 /* XSChartTests.m */; };
+		06D529CB1AA43A4500C851D0 /* XSChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D529CA1AA43A4500C851D0 /* XSChart.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		06D529B81AA4380200C851D0 /* XSChartTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XSChartTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		06D529BD1AA4380200C851D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		06D529BE1AA4380200C851D0 /* XSChartTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XSChartTests.m; sourceTree = "<group>"; };
+		06D529C91AA43A4500C851D0 /* XSChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSChart.h; sourceTree = "<group>"; };
+		06D529CA1AA43A4500C851D0 /* XSChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSChart.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,7 @@
 		06D529A11AA4380200C851D0 /* XSChart */ = {
 			isa = PBXGroup;
 			children = (
+				06D529C81AA43A4500C851D0 /* XSChart */,
 				06D529A61AA4380200C851D0 /* AppDelegate.h */,
 				06D529A71AA4380200C851D0 /* AppDelegate.m */,
 				06D529A91AA4380200C851D0 /* ViewController.h */,
@@ -117,6 +121,15 @@
 				06D529BD1AA4380200C851D0 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		06D529C81AA43A4500C851D0 /* XSChart */ = {
+			isa = PBXGroup;
+			children = (
+				06D529C91AA43A4500C851D0 /* XSChart.h */,
+				06D529CA1AA43A4500C851D0 /* XSChart.m */,
+			);
+			path = XSChart;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +235,7 @@
 				06D529AB1AA4380200C851D0 /* ViewController.m in Sources */,
 				06D529A81AA4380200C851D0 /* AppDelegate.m in Sources */,
 				06D529A51AA4380200C851D0 /* main.m in Sources */,
+				06D529CB1AA43A4500C851D0 /* XSChart.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +426,7 @@
 				06D529C41AA4380200C851D0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		06D529C51AA4380200C851D0 /* Build configuration list for PBXNativeTarget "XSChartTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +435,7 @@
 				06D529C71AA4380200C851D0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
