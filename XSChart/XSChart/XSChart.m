@@ -56,7 +56,7 @@ CGFloat radius=5.f;
 }
 -(void)drawRect:(CGRect)rect
 {
-    [self setupCoordinate];
+    //[self setupCoordinate];
     [self setupTitle];
     [self drawOriginAndMaxPoint];
     UIBezierPath *path=[UIBezierPath bezierPath];
@@ -176,7 +176,7 @@ CGFloat radius=5.f;
 {
     UITouch *touch=[touches anyObject];
     
-    for (NSInteger i=0; i<_count; i++) {
+    for (NSInteger i=0; i<self.count; i++) {
         NSInteger value=[_dataSource chart:self valueAtIndex:i];
         CGPoint point=[self pointWithValue:value index:i];
         if (CGRectContainsPoint(CGRectMake(point.x-radius, point.y-radius, radius*2, radius*2), [touch locationInView:self])) {
