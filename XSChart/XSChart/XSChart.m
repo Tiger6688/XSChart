@@ -11,12 +11,15 @@
 CGFloat margin=14.f;
 CGFloat radius=5.f;
 @interface XSChart ()
-
+{
+    NSMutableArray *_allLayer;
+}
 @property(nonatomic,strong)UILabel *titleLabel;
 @property (nonatomic,strong) CAShapeLayer * linePath;
 @property(nonatomic,assign)CGFloat avgHeight;
 @property(nonatomic,assign)NSInteger maxValue;
 @property(nonatomic,assign)NSInteger count;
+
 @end
 @implementation XSChart
 -(instancetype)initWithFrame:(CGRect)frame
@@ -31,6 +34,7 @@ CGFloat radius=5.f;
         _linePath.fillColor=[UIColor clearColor].CGColor;
         [self.layer addSublayer:_linePath];
         _maxValue=1;
+        _allLayer=[NSMutableArray array];
     }
     return self;
 }
@@ -56,7 +60,11 @@ CGFloat radius=5.f;
 }
 -(void)drawRect:(CGRect)rect
 {
-    //[self setupCoordinate];
+    [_allLayer enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [obj removeFromSuperlayer];
+    }];
+    [_allLayer removeAllObjects];
+    [self setupCoordinate];
     [self setupTitle];
     [self drawOriginAndMaxPoint];
     UIBezierPath *path=[UIBezierPath bezierPath];
@@ -93,7 +101,7 @@ CGFloat radius=5.f;
         CAShapeLayer *layer=[[CAShapeLayer alloc]init];
         layer.path=drawPoint.CGPath;
         _linePath.strokeEnd=1;
-       
+        [_allLayer addObject:layer];
         [self.layer addSublayer:layer];
         if (_dataSource&&[_dataSource respondsToSelector:@selector(showDataAtPointForChart:)]&&[_dataSource showDataAtPointForChart:self]) {
             NSString *valueString=[NSString stringWithFormat:@"%ld",(long)value];
