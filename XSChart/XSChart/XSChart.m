@@ -208,6 +208,6 @@ CGFloat radius=5.f;
 }
 -(void)reload
 {
-    [self layoutIfNeeded];
+    [self setNeedsDisplay];
 }
 @end
